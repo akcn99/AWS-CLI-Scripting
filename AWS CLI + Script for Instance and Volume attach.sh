@@ -9,7 +9,7 @@ ebsname=testingebs
 
 
 #creating the key pair
-aws ec2 create-key-pair --key-name $keyname --tag-specification "ResourceType=key-pair,Tags=[{Key=Name,Value=$keyname}]" --query "KeyMaterial" > $keyname.pem
+aws ec2 create-key-pair --key-name $keyname --tag-specification "ResourceType=key-pair,Tags=[{Key=Name,Value=$keyname}]" --query "KeyMaterial" --output text > $keyname.pem
 
 #Creating the security group
 aws ec2 create-security-group --group-name #sgname --description "created from CLI"  --vpc-id vpc-50f0e456
